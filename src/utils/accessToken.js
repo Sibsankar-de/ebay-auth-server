@@ -25,7 +25,6 @@ const getAccessToken = async () => {
                 }
             }
         );
-        console.log('Generated accessToken: ', response.data);
         return response.data.access_token;
     } catch (error) {
         console.error('Error fetching OAuth token:', error);

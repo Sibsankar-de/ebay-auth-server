@@ -20,7 +20,7 @@ app.use(cors());
 
 
 app.get('/api/v1/item/:itemId', itemController);
-app.get('/api/v1/search', searchItemController);
+app.get('/api/v1/search', cors(), searchItemController);
 
 
 

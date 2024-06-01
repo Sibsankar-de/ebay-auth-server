@@ -1,7 +1,7 @@
 import { getAccessToken } from "../utils/accessToken.js";
 import axios from "axios";
 
-const BASE_URL = 'https://api.ebay.com/buy/browse/v1/item_summary/search';
+const BASE_URL = 'https://api.sandbox.ebay.com/buy/browse/v1/item_summary/search';
 
 
 export const searchItemController = async (req, res) => {
@@ -12,11 +12,10 @@ export const searchItemController = async (req, res) => {
 
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
+                'content-Type': 'application/json'
             },
         });
         res.json(response.data);
-        console.log(`${BASE_URL}${req.query}`);
     } catch (error) {
         console.error('Error fetching Search details:', error.response ? error.response.data : error.message);
         res.status(error.response ? error.response.status : 500).json({ error: error.message });
